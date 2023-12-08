@@ -59,13 +59,13 @@ def solve_part1(cards: list[(str, int)]) -> int:
     order = ['A', 'K', 'Q', 'J', 'T', '9', '8', '7', '6', '5', '4', '3', '2']
     # x = (hand, bid)
     cards.sort(key=lambda x: (hand_to_type(x[0]), hand_to_nums(x[0], order)), reverse=True)
-    return sum([i * x[1] for i, x in enumerate(cards, 1)])
+    return sum(i * x[1] for i, x in enumerate(cards, 1))
 
 
 def solve_part2(cards: list[(str, int)]) -> int:
     order = ['A', 'K', 'Q', 'T', '9', '8', '7', '6', '5', '4', '3', '2', 'J']
     cards.sort(key=lambda x: (hand_to_type(x[0].replace('J', '')), hand_to_nums(x[0], order)), reverse=True)
-    return sum([i * x[1] for i, x in enumerate(cards, 1)])
+    return sum(i * x[1] for i, x in enumerate(cards, 1))
 
 
 if __name__ == '__main__':
